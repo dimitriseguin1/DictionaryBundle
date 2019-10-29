@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## Added
 - Support for many tags (filter dictionaries)
 - The registry can now be autowired
+- Implement CombinedDictionary. Allow to merge different dictionaries into one
 
 ## Changed
 - Category is now called tag #34
