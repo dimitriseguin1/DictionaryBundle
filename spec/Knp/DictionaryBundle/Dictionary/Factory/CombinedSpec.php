@@ -1,0 +1,68 @@
+<?php
+
+declare(strict_types=1);
+
+namespace spec\Knp\DictionaryBundle\Dictionary\Factory;
+
+use ArrayIterator;
+use Knp\DictionaryBundle\Dictionary;
+use PhpSpec\ObjectBehavior;
+
+class CombinedSpec extends ObjectBehavior
+{
+    function let()
+    {
+        $this->beConstructedWith(new Dictionary\DictionaryRegistry());
+    }
+
+    function it_is_initializable()
+    {
+        $this->shouldHaveType(Dictionary\Factory\Combined::class);
+    }
+
+    function it_is_a_factory()
+    {
+        $this->shouldHaveType(Dictionary\Factory::class);
+    }
+
+    function it_supports_specific_config()
+    {
+        $this->supports(['type' => 'combined'])->shouldReturn(true);
+    }
+
+    function it_creates_a_dictionary(Dictionary $dictionary1, Dictionary $dictionary2, Dictionary $dictionary3)
+    {
+        $dictionary1->getIterator()->willReturn(new ArrayIterator(['foo1' => 'foo10', 'foo2' => 'foo20']));
+        $dictionary1->getName()->willReturn('dictionary1');
+
+        $dictionary2->getIterator()->willReturn(new ArrayIterator(['bar1' => 'bar10', 'bar2' => 'bar20']));
+        $dictionary2->getName()->willReturn('dictionary2');
+
+        $dictionary3->getIterator()->willReturn(new ArrayIterator(['foo2' => 'baz20', 'bar2' => 'baz20']));
+        $dictionary3->getName()->willReturn('dictionary3');
+
+        $registry = new Dictionary\DictionaryRegistry();
+        $registry->add($dictionary1->getWrappedObject());
+        $registry->add($dictionary2->getWrappedObject());
+        $registry->add($dictionary3->getWrappedObject());
+        $this->beConstructedWith($registry);
+
+        $config = [
+            'type'         => 'combined',
+            'dictionaries' => [
+                'dictionary1',
+                'dictionary2',
+                'dictionary3',
+            ],
+        ];
+
+        $dictionary = $this->create('combined_dictionary', $config);
+
+        $dictionary->getValues()->shouldReturn([
+            'foo1' => 'foo10',
+            'foo2' => 'baz20',
+            'bar1' => 'bar10',
+            'bar2' => 'baz20',
+        ]);
+    }
+}
