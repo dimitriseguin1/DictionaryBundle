@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.1.7] - 2019-11-29
+### Added
+- Possibility to use invokable service with callable dictionary (it was possible before but a little bit more complex)
+
 ## [2.1.6] - 2019-10-07
 ### Fixed
 - Fix bad validation for dictionaries having key 0 (confusion with strings possible)
