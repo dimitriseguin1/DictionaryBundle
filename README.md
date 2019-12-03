@@ -38,7 +38,7 @@ $bundles = array(
 
 You can ping us if you need some reviews/comments/help:
 
-- [@loicproust](https://github.com/loicproust)
+- [@borbaguskada](https://github.com/borbaguskada)
 - [@mcsky](https://github.com/mcsky)
 - [@Nek-](https://github.com/Nek-)
 
