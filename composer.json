@@ -25,23 +25,23 @@
     "minimum-stability": "stable",
     "require": {
         "php": "^7.1",
-        "symfony/http-kernel": "^3.4 || ^4.0",
-        "symfony/dependency-injection": "^3.4 || ^4.0",
-        "symfony/http-foundation": "^3.4 || ^4.0",
-        "symfony/config": "^3.4 || ^4.0",
-        "symfony/form": "^3.4 || ^4.0",
-        "symfony/validator": "^3.4 || ^4.0",
-        "twig/twig": "^2.0",
+        "symfony/http-kernel": "^3.4 || ^4.0 || ^5.0",
+        "symfony/dependency-injection": "^3.4 || ^4.0 || ^5.0",
+        "symfony/http-foundation": "^3.4 || ^4.0 || ^5.0",
+        "symfony/config": "^3.4 || ^4.0 || ^5.0",
+        "symfony/form": "^3.4 || ^4.0 || ^5.0",
+        "symfony/validator": "^3.4 || ^4.0 || ^5.0",
+        "twig/twig": "^2.0 || ^3.0",
         "fzaninotto/faker": "^1.6"
     },
     "require-dev": {
         "bossa/phpspec2-expect": "^3.0",
         "friendsofphp/php-cs-fixer": "^2.11",
-        "leanphp/phpspec-code-coverage": "^4.0",
-        "phpunit/php-code-coverage": "^5.2.3",
-        "phpspec/phpspec": "^4.0",
+        "phpunit/php-code-coverage": "^5.2.3 || ^6.0 || ^7.0 || ^8.0 || ^9.0",
+        "phpspec/phpspec": "^4.0 || ^5.0 || ^6.0",
         "phpspec/prophecy": "^1.7",
-        "sebastian/comparator": "^2.0"
+        "sebastian/comparator": "^2.0 || ^3.0 || ^4.0",
+        "friends-of-phpspec/phpspec-code-coverage": "^4.3"
     },
     "config": {
         "bin-dir": "bin"
